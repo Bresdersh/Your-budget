@@ -148,7 +148,8 @@ var userInterfaceController = (function() {
         incomeLabel: ".converter__income--value",
         expensesLabel: ".converter__expenses--value",
         percentageLabel: ".converter__expenses--percentage",
-        container: ".container"
+        container: ".container",
+        expensesPercLabel: ".item__percentage"
     };
 
     return {
@@ -217,6 +218,25 @@ var userInterfaceController = (function() {
             }
         },
 
+        displayPercentages: function(percentages) {
+            var fields = document.querySelectorAll(DOMStrings.expensesPercLabel);
+
+            var nodeListForEach = function(list, callback) {
+                for(var i = 0; i < list.length; i++) {
+                    callback(list[i], i);
+                }
+            };
+
+            nodeListForEach(fields, function(current, index) {
+
+                if(percentages[index] > 0) {
+                    current.textContent = percentages[index] + "%";
+                } else {
+                    current.textContent = "---";
+                }
+            });
+        },
+
         getDOMStrings: function() {
             return DOMStrings;
         }
@@ -266,7 +286,7 @@ var applicationController = (function(calculationCtrl, userInterfaceCtrl) {
         var percentages = calculationCtrl.getPercentages();
 
         // Update the UI with the new percentages
-        console.log(percentages);
+        userInterfaceController.displayPercentages(percentages);
 
     };
 
