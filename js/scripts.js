@@ -5,6 +5,19 @@ var calculationController = (function() {
         this.id = id;
         this.description = description;
         this.value = value;
+        this.percentage = -1;
+    };
+
+    Loss.prototype.calcPercentage = function(totalIncome) {
+        if(totalIncome > 0) {
+            this.percentage = Math.round((this.value / totalIncome) * 100);
+        } else {
+            this.percentage = -1;
+        }
+    };
+
+    Loss.prototype.getPercentage = function() {
+        return this.percentage;
     };
 
     var Profit = function(id, description, value) {
@@ -90,6 +103,19 @@ var calculationController = (function() {
             } else {
                 data.percentage = -1;
             }
+        },
+
+        calculatePercentages: function() {
+            data.allItems.exp.forEach(function(cur) {
+                cur.calcPercentage(data.totals.inc);
+            });
+        },
+
+        getPercentages: function() {
+            var allPerc = data.allItems.exp.map(function(cur) {
+                return cur.getPercentage();
+            });
+            return allPerc;
         },
 
         getBudget: function() {
@@ -234,10 +260,13 @@ var applicationController = (function(calculationCtrl, userInterfaceCtrl) {
     var updatePercentages = function() {
 
         // Calculate percentages
+        calculationCtrl.calculatePercentages();
 
         // Read percentages from the budget controller
+        var percentages = calculationCtrl.getPercentages();
 
         // Update the UI with the new percentages
+        console.log(percentages);
 
     };
 
