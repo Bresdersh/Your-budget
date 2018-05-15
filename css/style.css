@@ -32,8 +32,8 @@ h2 {
 }
 
 .right { float: right; }
-.red { color: #FF5049 !important; }
-.red-focus:focus { border: .2rem solid #FF5049 !important; }
+.red { color: #000000 !important; }
+.red-focus:focus { border: .2rem solid #DC3545 !important; }
 
 /* Top */
 .top {
@@ -81,13 +81,13 @@ h2 {
     margin-bottom: 1rem;
     padding: 2rem;
     border-radius: 1rem;
-    background-color: #6C4F3D;
+    background-color: #28A745;
 }
 
 .converter__expenses {
     padding: 2rem;
     border-radius: 1rem;
-    background-color: #9B2335;
+    background-color: #DC3545;
 }
 
 .converter__income--text,
@@ -96,7 +96,7 @@ h2 {
     margin-top: .2rem;
     font-weight: 700;
     font-size: 1.4rem;
-    color: #000000;
+    color: #343A40;
 }
 
 .converter__income--value,
@@ -124,7 +124,7 @@ h2 {
 .insert {
     padding: 1.4rem;
     border-bottom: .2rem solid #E7E7E7;
-    background-color: #5643FA;
+    background-color: #007BFF;
 }
 
 .insert__container {
@@ -139,6 +139,7 @@ h2 {
     font-size: 1.8rem;
     color: inherit;
     border: .2rem solid #E7E7E7;
+    border-radius: .5rem;
     background-color: #FFFFFF;
     transition: border 0.3s;
 }
@@ -177,7 +178,7 @@ h2 {
 .insert__description:focus,
 .insert__value:focus {
     outline: none;
-    border: .2rem solid #6C4F3D;
+    border: .2rem solid #28A745;
 }
 
 .insert__btn:focus { outline: none; }
@@ -199,8 +200,8 @@ h2 {
     width: 47.5rem;
 }
 
-.income__title { color: #6C4F3D; }
-.expenses__title { color: #9B2335; }
+.income__title { color: #28A745; }
+.expenses__title { color: #DC3545; }
 
 .item {
     padding: 1.3rem;
@@ -233,13 +234,13 @@ h2 {
 
 .income .item__value,
 .income .item__delete--btn {
-    color: #6C4F3D;
+    color: #28A745;
 }
 
 .expenses .item__value,
 .expenses .item__percentage,
 .expenses .item__delete--btn {
-    color: #9B2335;
+    color: #DC3545;
 }
 
 
@@ -266,7 +267,7 @@ h2 {
 .item:hover .item__percentage { transform: translateX(-2rem); }
 
 .unpaid {
-    color: #9B2335;
+    color: #DC3545;
     background-color: #FFDAD9 !important;
     cursor: pointer;
 
@@ -274,4 +275,3 @@ h2 {
 
 .unpaid .item__percentage { box-shadow: 0 .2rem .3rem 0 rgba(0, 0, 0, 0.1); }
 .unpaid:hover .item__description { font-weight: 900; }
-
